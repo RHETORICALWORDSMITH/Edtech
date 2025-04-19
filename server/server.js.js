@@ -17,6 +17,7 @@ const expSession = require("./middlewares/expressSessionMiddleware");
 // Import routes
 const authRouter = require("./routes/auth.route");
 const googleAuthRouter = require("./routes/googleAuth.route");
+const courseRouter = require("./routes/course.routes");
 
 const app = express();
 app.use(express.json());
@@ -39,6 +40,7 @@ app.use("/videos", express.static(path.join(__dirname, "uploads/videos")));
 // Routes
 app.use("/auth", authRouter);
 app.use("/googleAuth", googleAuthRouter);
+app.use("/courses", courseRouter);
 
 // Sample route
 app.get("/", (req, res) => {
